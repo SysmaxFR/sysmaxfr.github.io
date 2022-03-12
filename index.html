@@ -1,0 +1,432 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title> IOParser </title>
+    <style>
+        table{
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+        th, td{
+            padding: 10px 20px;
+            border: 1px solid #000;
+        }
+    </style>
+  </head>
+
+  <body>
+    <input id="upload" type="file" accept=".csv">
+    <br><br>
+    <script type="text/javascript">
+
+document.getElementById('upload').onchange = function()
+{
+  var file = this.files[0];
+  var reader = new FileReader();
+  reader.onload = function(progressEvent)
+  {
+    var fileContentArray = this.result.split(/\r\n|\n/);
+
+    var database = fileContentArray[15].split(',');
+    var email = fileContentArray[31].split(',');
+    var archive = fileContentArray[47].split(',');
+    var streaming = fileContentArray[63].split(',');
+    var vdi = fileContentArray[79].split(',');
+    var size_4k_read = fileContentArray[95].split(',');
+    var size_4k_write = fileContentArray[111].split(',');
+    var size_16k_read = fileContentArray[127].split(',');
+    var size_16k_write = fileContentArray[143].split(',');
+    var size_256k_read = fileContentArray[159].split(',');
+    var size_256k_write = fileContentArray[175].split(',');
+
+    console.log(fileContentArray);
+    console.log(database);
+
+    // struture tableau
+    let table = document.createElement('table');
+    let thead = document.createElement('thead');
+    let tbody = document.createElement('tbody');
+    table.appendChild(thead);
+    table.appendChild(tbody);
+    document.getElementById('body').appendChild(table);
+
+    // en-tete
+    let row_0 = document.createElement('tr');
+    let row_0_data_1 = document.createElement('th');
+    row_0_data_1.innerHTML = "Target Name";
+    let row_0_data_2 = document.createElement('th');
+    row_0_data_2.innerHTML = "Access Specification Name";
+    let row_0_data_3 = document.createElement('th');
+    row_0_data_3.innerHTML = "IOps";
+    let row_0_data_4 = document.createElement('th');
+    row_0_data_4.innerHTML = "Read IOps";
+    let row_0_data_5 = document.createElement('th');
+    row_0_data_5.innerHTML = "Write IOps"
+    let row_0_data_6 = document.createElement('th');
+    row_0_data_6.innerHTML = " MBps (Decimal)";
+    let row_0_data_7 = document.createElement('th');
+    row_0_data_7.innerHTML = "Read MBps (Decimal)";
+    let row_0_data_8 = document.createElement('th');
+    row_0_data_8.innerHTML = "Write MBps (Decimal)";
+    let row_0_data_9 = document.createElement('th');
+    row_0_data_9.innerHTML = "% CPU Utilization";
+    row_0.appendChild(row_0_data_1);
+    row_0.appendChild(row_0_data_2);
+    row_0.appendChild(row_0_data_3);
+    row_0.appendChild(row_0_data_4);
+    row_0.appendChild(row_0_data_5);
+    row_0.appendChild(row_0_data_6);
+    row_0.appendChild(row_0_data_7);
+    row_0.appendChild(row_0_data_8);
+    row_0.appendChild(row_0_data_9);
+    thead.appendChild(row_0);
+
+    // test database
+    let row_1 = document.createElement('tr');
+    let row_1_data_1 = document.createElement('td');
+    row_1_data_1.innerHTML = database[1] ;
+    let row_1_data_2 = document.createElement('td');
+    row_1_data_2.innerHTML = database[2] ;
+    let row_1_data_3 = document.createElement('td');
+    row_1_data_3.innerHTML = database[6];
+    let row_1_data_4 = document.createElement('td');
+    row_1_data_4.innerHTML = database[7];
+    let row_1_data_5 = document.createElement('td');
+    row_1_data_5.innerHTML = database[8];
+    let row_1_data_6 = document.createElement('td');
+    row_1_data_6.innerHTML = database[12];
+    let row_1_data_7 = document.createElement('td');
+    row_1_data_7.innerHTML = database[13];
+    let row_1_data_8 = document.createElement('td');
+    row_1_data_8.innerHTML = database[14];
+    let row_1_data_9 = document.createElement('td');
+    row_1_data_9.innerHTML = database[48];
+    row_1.appendChild(row_1_data_1);
+    row_1.appendChild(row_1_data_2);
+    row_1.appendChild(row_1_data_3);
+    row_1.appendChild(row_1_data_4);
+    row_1.appendChild(row_1_data_5);
+    row_1.appendChild(row_1_data_6);
+    row_1.appendChild(row_1_data_7);
+    row_1.appendChild(row_1_data_8);
+    row_1.appendChild(row_1_data_9);
+    thead.appendChild(row_1);
+
+    // test email
+    let row_2 = document.createElement('tr');
+    let row_2_data_1 = document.createElement('td');
+    row_2_data_1.innerHTML = "" ;
+    let row_2_data_2 = document.createElement('td');
+    row_2_data_2.innerHTML = email[2] ;
+    let row_2_data_3 = document.createElement('td');
+    row_2_data_3.innerHTML = email[6];
+    let row_2_data_4 = document.createElement('td');
+    row_2_data_4.innerHTML = email[7];
+    let row_2_data_5 = document.createElement('td');
+    row_2_data_5.innerHTML = email[8];
+    let row_2_data_6 = document.createElement('td');
+    row_2_data_6.innerHTML = email[12];
+    let row_2_data_7 = document.createElement('td');
+    row_2_data_7.innerHTML = email[13];
+    let row_2_data_8 = document.createElement('td');
+    row_2_data_8.innerHTML = email[14];
+    let row_2_data_9 = document.createElement('td');
+    row_2_data_9.innerHTML = email[48];
+    row_2.appendChild(row_2_data_1);
+    row_2.appendChild(row_2_data_2);
+    row_2.appendChild(row_2_data_3);
+    row_2.appendChild(row_2_data_4);
+    row_2.appendChild(row_2_data_5);
+    row_2.appendChild(row_2_data_6);
+    row_2.appendChild(row_2_data_7);
+    row_2.appendChild(row_2_data_8);
+    row_2.appendChild(row_2_data_9);
+    thead.appendChild(row_2);
+
+    // test archive
+    let row_3 = document.createElement('tr');
+    let row_3_data_1 = document.createElement('td');
+    row_3_data_1.innerHTML = "" ;
+    let row_3_data_2 = document.createElement('td');
+    row_3_data_2.innerHTML = archive[2] ;
+    let row_3_data_3 = document.createElement('td');
+    row_3_data_3.innerHTML = archive[6];
+    let row_3_data_4 = document.createElement('td');
+    row_3_data_4.innerHTML = archive[7];
+    let row_3_data_5 = document.createElement('td');
+    row_3_data_5.innerHTML = archive[8];
+    let row_3_data_6 = document.createElement('td');
+    row_3_data_6.innerHTML = archive[12];
+    let row_3_data_7 = document.createElement('td');
+    row_3_data_7.innerHTML = archive[13];
+    let row_3_data_8 = document.createElement('td');
+    row_3_data_8.innerHTML = archive[14];
+    let row_3_data_9 = document.createElement('td');
+    row_3_data_9.innerHTML = archive[48];
+    row_3.appendChild(row_3_data_1);
+    row_3.appendChild(row_3_data_2);
+    row_3.appendChild(row_3_data_3);
+    row_3.appendChild(row_3_data_4);
+    row_3.appendChild(row_3_data_5);
+    row_3.appendChild(row_3_data_6);
+    row_3.appendChild(row_3_data_7);
+    row_3.appendChild(row_3_data_8);
+    row_3.appendChild(row_3_data_9);
+    thead.appendChild(row_3);
+
+    // test streaming
+    let row_4 = document.createElement('tr');
+    let row_4_data_1 = document.createElement('td');
+    row_4_data_1.innerHTML = "" ;
+    let row_4_data_2 = document.createElement('td');
+    row_4_data_2.innerHTML = streaming[2] ;
+    let row_4_data_3 = document.createElement('td');
+    row_4_data_3.innerHTML = streaming[6];
+    let row_4_data_4 = document.createElement('td');
+    row_4_data_4.innerHTML = streaming[7];
+    let row_4_data_5 = document.createElement('td');
+    row_4_data_5.innerHTML = streaming[8];
+    let row_4_data_6 = document.createElement('td');
+    row_4_data_6.innerHTML = streaming[12];
+    let row_4_data_7 = document.createElement('td');
+    row_4_data_7.innerHTML = streaming[13];
+    let row_4_data_8 = document.createElement('td');
+    row_4_data_8.innerHTML = streaming[14];
+    let row_4_data_9 = document.createElement('td');
+    row_4_data_9.innerHTML = streaming[48];
+    row_4.appendChild(row_4_data_1);
+    row_4.appendChild(row_4_data_2);
+    row_4.appendChild(row_4_data_3);
+    row_4.appendChild(row_4_data_4);
+    row_4.appendChild(row_4_data_5);
+    row_4.appendChild(row_4_data_6);
+    row_4.appendChild(row_4_data_7);
+    row_4.appendChild(row_4_data_8);
+    row_4.appendChild(row_4_data_9);
+    thead.appendChild(row_4);
+
+    // test vdi
+    let row_5 = document.createElement('tr');
+    let row_5_data_1 = document.createElement('td');
+    row_5_data_1.innerHTML = "" ;
+    let row_5_data_2 = document.createElement('td');
+    row_5_data_2.innerHTML = vdi[2] ;
+    let row_5_data_3 = document.createElement('td');
+    row_5_data_3.innerHTML = vdi[6];
+    let row_5_data_4 = document.createElement('td');
+    row_5_data_4.innerHTML = vdi[7];
+    let row_5_data_5 = document.createElement('td');
+    row_5_data_5.innerHTML = vdi[8];
+    let row_5_data_6 = document.createElement('td');
+    row_5_data_6.innerHTML = vdi[12];
+    let row_5_data_7 = document.createElement('td');
+    row_5_data_7.innerHTML = vdi[13];
+    let row_5_data_8 = document.createElement('td');
+    row_5_data_8.innerHTML = vdi[14];
+    let row_5_data_9 = document.createElement('td');
+    row_5_data_9.innerHTML = vdi[48];
+    row_5.appendChild(row_5_data_1);
+    row_5.appendChild(row_5_data_2);
+    row_5.appendChild(row_5_data_3);
+    row_5.appendChild(row_5_data_4);
+    row_5.appendChild(row_5_data_5);
+    row_5.appendChild(row_5_data_6);
+    row_5.appendChild(row_5_data_7);
+    row_5.appendChild(row_5_data_8);
+    row_5.appendChild(row_5_data_9);
+    thead.appendChild(row_5);
+
+    // test size_4k_read
+    let row_6 = document.createElement('tr');
+    let row_6_data_1 = document.createElement('td');
+    row_6_data_1.innerHTML = "" ;
+    let row_6_data_2 = document.createElement('td');
+    row_6_data_2.innerHTML = size_4k_read[2] ;
+    let row_6_data_3 = document.createElement('td');
+    row_6_data_3.innerHTML = size_4k_read[6];
+    let row_6_data_4 = document.createElement('td');
+    row_6_data_4.innerHTML = size_4k_read[7];
+    let row_6_data_5 = document.createElement('td');
+    row_6_data_5.innerHTML = size_4k_read[8];
+    let row_6_data_6 = document.createElement('td');
+    row_6_data_6.innerHTML = size_4k_read[12];
+    let row_6_data_7 = document.createElement('td');
+    row_6_data_7.innerHTML = size_4k_read[13];
+    let row_6_data_8 = document.createElement('td');
+    row_6_data_8.innerHTML = size_4k_read[14];
+    let row_6_data_9 = document.createElement('td');
+    row_6_data_9.innerHTML = size_4k_read[48];
+    row_6.appendChild(row_6_data_1);
+    row_6.appendChild(row_6_data_2);
+    row_6.appendChild(row_6_data_3);
+    row_6.appendChild(row_6_data_4);
+    row_6.appendChild(row_6_data_5);
+    row_6.appendChild(row_6_data_6);
+    row_6.appendChild(row_6_data_7);
+    row_6.appendChild(row_6_data_8);
+    row_6.appendChild(row_6_data_9);
+    thead.appendChild(row_6);
+
+    // test size_4k_write
+    let row_7 = document.createElement('tr');
+    let row_7_data_1 = document.createElement('td');
+    row_7_data_1.innerHTML = "" ;
+    let row_7_data_2 = document.createElement('td');
+    row_7_data_2.innerHTML = size_4k_write[2] ;
+    let row_7_data_3 = document.createElement('td');
+    row_7_data_3.innerHTML = size_4k_write[6];
+    let row_7_data_4 = document.createElement('td');
+    row_7_data_4.innerHTML = size_4k_write[7];
+    let row_7_data_5 = document.createElement('td');
+    row_7_data_5.innerHTML = size_4k_write[8];
+    let row_7_data_6 = document.createElement('td');
+    row_7_data_6.innerHTML = size_4k_write[12];
+    let row_7_data_7 = document.createElement('td');
+    row_7_data_7.innerHTML = size_4k_write[13];
+    let row_7_data_8 = document.createElement('td');
+    row_7_data_8.innerHTML = size_4k_write[14];
+    let row_7_data_9 = document.createElement('td');
+    row_7_data_9.innerHTML = size_4k_write[48];
+    row_7.appendChild(row_7_data_1);
+    row_7.appendChild(row_7_data_2);
+    row_7.appendChild(row_7_data_3);
+    row_7.appendChild(row_7_data_4);
+    row_7.appendChild(row_7_data_5);
+    row_7.appendChild(row_7_data_6);
+    row_7.appendChild(row_7_data_7);
+    row_7.appendChild(row_7_data_8);
+    row_7.appendChild(row_7_data_9);
+    thead.appendChild(row_7);
+
+    // test size_16k_read
+    let row_8 = document.createElement('tr');
+    let row_8_data_1 = document.createElement('td');
+    row_8_data_1.innerHTML = "" ;
+    let row_8_data_2 = document.createElement('td');
+    row_8_data_2.innerHTML = size_16k_read[2] ;
+    let row_8_data_3 = document.createElement('td');
+    row_8_data_3.innerHTML = size_16k_read[6];
+    let row_8_data_4 = document.createElement('td');
+    row_8_data_4.innerHTML = size_16k_read[7];
+    let row_8_data_5 = document.createElement('td');
+    row_8_data_5.innerHTML = size_16k_read[8];
+    let row_8_data_6 = document.createElement('td');
+    row_8_data_6.innerHTML = size_16k_read[12];
+    let row_8_data_7 = document.createElement('td');
+    row_8_data_7.innerHTML = size_16k_read[13];
+    let row_8_data_8 = document.createElement('td');
+    row_8_data_8.innerHTML = size_16k_read[14];
+    let row_8_data_9 = document.createElement('td');
+    row_8_data_9.innerHTML = size_16k_read[48];
+    row_8.appendChild(row_8_data_1);
+    row_8.appendChild(row_8_data_2);
+    row_8.appendChild(row_8_data_3);
+    row_8.appendChild(row_8_data_4);
+    row_8.appendChild(row_8_data_5);
+    row_8.appendChild(row_8_data_6);
+    row_8.appendChild(row_8_data_7);
+    row_8.appendChild(row_8_data_8);
+    row_8.appendChild(row_8_data_9);
+    thead.appendChild(row_8);
+
+    // test size_16k_write
+    let row_9 = document.createElement('tr');
+    let row_9_data_1 = document.createElement('td');
+    row_9_data_1.innerHTML = "" ;
+    let row_9_data_2 = document.createElement('td');
+    row_9_data_2.innerHTML = size_16k_write[2] ;
+    let row_9_data_3 = document.createElement('td');
+    row_9_data_3.innerHTML = size_16k_write[6];
+    let row_9_data_4 = document.createElement('td');
+    row_9_data_4.innerHTML = size_16k_write[7];
+    let row_9_data_5 = document.createElement('td');
+    row_9_data_5.innerHTML = size_16k_write[8];
+    let row_9_data_6 = document.createElement('td');
+    row_9_data_6.innerHTML = size_16k_write[12];
+    let row_9_data_7 = document.createElement('td');
+    row_9_data_7.innerHTML = size_16k_write[13];
+    let row_9_data_8 = document.createElement('td');
+    row_9_data_8.innerHTML = size_16k_write[14];
+    let row_9_data_9 = document.createElement('td');
+    row_9_data_9.innerHTML = size_16k_write[48];
+    row_9.appendChild(row_9_data_1);
+    row_9.appendChild(row_9_data_2);
+    row_9.appendChild(row_9_data_3);
+    row_9.appendChild(row_9_data_4);
+    row_9.appendChild(row_9_data_5);
+    row_9.appendChild(row_9_data_6);
+    row_9.appendChild(row_9_data_7);
+    row_9.appendChild(row_9_data_8);
+    row_9.appendChild(row_9_data_9);
+    thead.appendChild(row_9);
+
+    // test size_256k_read
+    let row_10 = document.createElement('tr');
+    let row_10_data_1 = document.createElement('td');
+    row_10_data_1.innerHTML = "" ;
+    let row_10_data_2 = document.createElement('td');
+    row_10_data_2.innerHTML = size_256k_read[2] ;
+    let row_10_data_3 = document.createElement('td');
+    row_10_data_3.innerHTML = size_256k_read[6];
+    let row_10_data_4 = document.createElement('td');
+    row_10_data_4.innerHTML = size_256k_read[7];
+    let row_10_data_5 = document.createElement('td');
+    row_10_data_5.innerHTML = size_256k_read[8];
+    let row_10_data_6 = document.createElement('td');
+    row_10_data_6.innerHTML = size_256k_read[12];
+    let row_10_data_7 = document.createElement('td');
+    row_10_data_7.innerHTML = size_256k_read[13];
+    let row_10_data_8 = document.createElement('td');
+    row_10_data_8.innerHTML = size_256k_read[14];
+    let row_10_data_9 = document.createElement('td');
+    row_10_data_9.innerHTML = size_256k_read[48];
+    row_10.appendChild(row_10_data_1);
+    row_10.appendChild(row_10_data_2);
+    row_10.appendChild(row_10_data_3);
+    row_10.appendChild(row_10_data_4);
+    row_10.appendChild(row_10_data_5);
+    row_10.appendChild(row_10_data_6);
+    row_10.appendChild(row_10_data_7);
+    row_10.appendChild(row_10_data_8);
+    row_10.appendChild(row_10_data_9);
+    thead.appendChild(row_10);
+
+    // test size_256_write
+    let row_11 = document.createElement('tr');
+    let row_11_data_1 = document.createElement('td');
+    row_11_data_1.innerHTML = "" ;
+    let row_11_data_2 = document.createElement('td');
+    row_11_data_2.innerHTML = size_256k_write[2] ;
+    let row_11_data_3 = document.createElement('td');
+    row_11_data_3.innerHTML = size_256k_write[6];
+    let row_11_data_4 = document.createElement('td');
+    row_11_data_4.innerHTML = size_256k_write[7];
+    let row_11_data_5 = document.createElement('td');
+    row_11_data_5.innerHTML = size_256k_write[8];
+    let row_11_data_6 = document.createElement('td');
+    row_11_data_6.innerHTML = size_256k_write[12];
+    let row_11_data_7 = document.createElement('td');
+    row_11_data_7.innerHTML = size_256k_write[13];
+    let row_11_data_8 = document.createElement('td');
+    row_11_data_8.innerHTML = size_256k_write[14];
+    let row_11_data_9 = document.createElement('td');
+    row_11_data_9.innerHTML = size_256k_write[48];
+    row_11.appendChild(row_11_data_1);
+    row_11.appendChild(row_11_data_2);
+    row_11.appendChild(row_11_data_3);
+    row_11.appendChild(row_11_data_4);
+    row_11.appendChild(row_11_data_5);
+    row_11.appendChild(row_11_data_6);
+    row_11.appendChild(row_11_data_7);
+    row_11.appendChild(row_11_data_8);
+    row_11.appendChild(row_11_data_9);
+    thead.appendChild(row_11);
+  };
+
+  reader.readAsText(file);
+};
+    </script>
+  </body>
+</html> 
