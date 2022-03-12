@@ -1,4 +1,4 @@
-:computer: :shield: :wave:
+:wave: :computer: :shield:
 
 # Redirections vers divers projets :
 
