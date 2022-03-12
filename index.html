@@ -16,14 +16,14 @@
     </style>
   </head>
 
-  <body>
-    <input id="upload" type="file" accept=".csv">
+  <body id="body">
+    <input id="file" type="file" accept=".csv">
     <br><br>
     <script type="text/javascript">
 
-document.getElementById('upload').onchange = function()
+document.getElementById('file').onchange = function()
 {
-  var file = this.files[0];
+  var csv = this.files[0];
   var reader = new FileReader();
   reader.onload = function(progressEvent)
   {
@@ -425,7 +425,7 @@ document.getElementById('upload').onchange = function()
     thead.appendChild(row_11);
   };
 
-  reader.readAsText(file);
+  reader.readAsText(csv);
 };
     </script>
   </body>
