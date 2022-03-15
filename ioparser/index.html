@@ -65,15 +65,15 @@ document.getElementById('file').onchange = function()
     let row_0_data_5 = document.createElement('th');
     row_0_data_5.innerHTML = "Write IOps"
     let row_0_data_6 = document.createElement('th');
-    row_0_data_6.innerHTML = " MBps (Decimal)";
+    row_0_data_6.innerHTML = " MBps";
     let row_0_data_7 = document.createElement('th');
-    row_0_data_7.innerHTML = "Read MBps (Decimal)";
+    row_0_data_7.innerHTML = "Read MBps";
     let row_0_data_8 = document.createElement('th');
-    row_0_data_8.innerHTML = "Write MBps (Decimal)";
+    row_0_data_8.innerHTML = "Write MBps";
     let row_0_data_9 = document.createElement('th');
     row_0_data_9.innerHTML = "% CPU Utilization";
     let row_0_data_10 = document.createElement('th');
-    row_0_data_10.innerHTML = "latency (%)";
+    row_0_data_10.innerHTML = "% Latency";
     row_0.appendChild(row_0_data_1);
     row_0.appendChild(row_0_data_2);
     row_0.appendChild(row_0_data_3);
@@ -151,7 +151,7 @@ document.getElementById('file').onchange = function()
     row_2.appendChild(row_2_data_7);
     row_2.appendChild(row_2_data_8);
     row_2.appendChild(row_2_data_9);
-    row_1.appendChild(row_1_data_10);
+    row_2.appendChild(row_2_data_10);
     thead.appendChild(row_2);
 
     // test archive
