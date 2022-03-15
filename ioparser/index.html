@@ -72,6 +72,8 @@ document.getElementById('file').onchange = function()
     row_0_data_8.innerHTML = "Write MBps (Decimal)";
     let row_0_data_9 = document.createElement('th');
     row_0_data_9.innerHTML = "% CPU Utilization";
+    let row_0_data_10 = document.createElement('th');
+    row_0_data_10.innerHTML = "latency (%)";
     row_0.appendChild(row_0_data_1);
     row_0.appendChild(row_0_data_2);
     row_0.appendChild(row_0_data_3);
@@ -81,6 +83,7 @@ document.getElementById('file').onchange = function()
     row_0.appendChild(row_0_data_7);
     row_0.appendChild(row_0_data_8);
     row_0.appendChild(row_0_data_9);
+    row_0.appendChild(row_0_data_10);
     thead.appendChild(row_0);
 
     // test database
@@ -103,6 +106,8 @@ document.getElementById('file').onchange = function()
     row_1_data_8.innerHTML = database[14];
     let row_1_data_9 = document.createElement('td');
     row_1_data_9.innerHTML = database[48];
+    let row_1_data_10 = document.createElement('td');
+    row_1_data_10.innerHTML = database[17];
     row_1.appendChild(row_1_data_1);
     row_1.appendChild(row_1_data_2);
     row_1.appendChild(row_1_data_3);
@@ -112,6 +117,7 @@ document.getElementById('file').onchange = function()
     row_1.appendChild(row_1_data_7);
     row_1.appendChild(row_1_data_8);
     row_1.appendChild(row_1_data_9);
+    row_1.appendChild(row_1_data_10);
     thead.appendChild(row_1);
 
     // test email
@@ -134,6 +140,8 @@ document.getElementById('file').onchange = function()
     row_2_data_8.innerHTML = email[14];
     let row_2_data_9 = document.createElement('td');
     row_2_data_9.innerHTML = email[48];
+    let row_2_data_10 = document.createElement('td');
+    row_2_data_10.innerHTML = email[17];
     row_2.appendChild(row_2_data_1);
     row_2.appendChild(row_2_data_2);
     row_2.appendChild(row_2_data_3);
@@ -143,6 +151,7 @@ document.getElementById('file').onchange = function()
     row_2.appendChild(row_2_data_7);
     row_2.appendChild(row_2_data_8);
     row_2.appendChild(row_2_data_9);
+    row_1.appendChild(row_1_data_10);
     thead.appendChild(row_2);
 
     // test archive
@@ -165,6 +174,8 @@ document.getElementById('file').onchange = function()
     row_3_data_8.innerHTML = archive[14];
     let row_3_data_9 = document.createElement('td');
     row_3_data_9.innerHTML = archive[48];
+    let row_3_data_10 = document.createElement('td');
+    row_3_data_10.innerHTML = archive[17];
     row_3.appendChild(row_3_data_1);
     row_3.appendChild(row_3_data_2);
     row_3.appendChild(row_3_data_3);
@@ -174,6 +185,7 @@ document.getElementById('file').onchange = function()
     row_3.appendChild(row_3_data_7);
     row_3.appendChild(row_3_data_8);
     row_3.appendChild(row_3_data_9);
+    row_3.appendChild(row_3_data_10);
     thead.appendChild(row_3);
 
     // test streaming
@@ -196,6 +208,8 @@ document.getElementById('file').onchange = function()
     row_4_data_8.innerHTML = streaming[14];
     let row_4_data_9 = document.createElement('td');
     row_4_data_9.innerHTML = streaming[48];
+    let row_4_data_10 = document.createElement('td');
+    row_4_data_10.innerHTML = streaming[17];
     row_4.appendChild(row_4_data_1);
     row_4.appendChild(row_4_data_2);
     row_4.appendChild(row_4_data_3);
@@ -205,6 +219,7 @@ document.getElementById('file').onchange = function()
     row_4.appendChild(row_4_data_7);
     row_4.appendChild(row_4_data_8);
     row_4.appendChild(row_4_data_9);
+    row_4.appendChild(row_4_data_10);
     thead.appendChild(row_4);
 
     // test vdi
@@ -227,6 +242,8 @@ document.getElementById('file').onchange = function()
     row_5_data_8.innerHTML = vdi[14];
     let row_5_data_9 = document.createElement('td');
     row_5_data_9.innerHTML = vdi[48];
+    let row_5_data_10 = document.createElement('td');
+    row_5_data_10.innerHTML = vdi[17];
     row_5.appendChild(row_5_data_1);
     row_5.appendChild(row_5_data_2);
     row_5.appendChild(row_5_data_3);
@@ -236,6 +253,7 @@ document.getElementById('file').onchange = function()
     row_5.appendChild(row_5_data_7);
     row_5.appendChild(row_5_data_8);
     row_5.appendChild(row_5_data_9);
+    row_5.appendChild(row_5_data_10);
     thead.appendChild(row_5);
 
     // test size_4k_read
@@ -258,6 +276,8 @@ document.getElementById('file').onchange = function()
     row_6_data_8.innerHTML = size_4k_read[14];
     let row_6_data_9 = document.createElement('td');
     row_6_data_9.innerHTML = size_4k_read[48];
+    let row_6_data_10 = document.createElement('td');
+    row_6_data_10.innerHTML = size_4k_read[17];
     row_6.appendChild(row_6_data_1);
     row_6.appendChild(row_6_data_2);
     row_6.appendChild(row_6_data_3);
@@ -267,6 +287,7 @@ document.getElementById('file').onchange = function()
     row_6.appendChild(row_6_data_7);
     row_6.appendChild(row_6_data_8);
     row_6.appendChild(row_6_data_9);
+    row_6.appendChild(row_6_data_10);
     thead.appendChild(row_6);
 
     // test size_4k_write
@@ -289,6 +310,8 @@ document.getElementById('file').onchange = function()
     row_7_data_8.innerHTML = size_4k_write[14];
     let row_7_data_9 = document.createElement('td');
     row_7_data_9.innerHTML = size_4k_write[48];
+    let row_7_data_10 = document.createElement('td');
+    row_7_data_10.innerHTML = size_4k_write[17];
     row_7.appendChild(row_7_data_1);
     row_7.appendChild(row_7_data_2);
     row_7.appendChild(row_7_data_3);
@@ -298,6 +321,7 @@ document.getElementById('file').onchange = function()
     row_7.appendChild(row_7_data_7);
     row_7.appendChild(row_7_data_8);
     row_7.appendChild(row_7_data_9);
+    row_7.appendChild(row_7_data_10);
     thead.appendChild(row_7);
 
     // test size_16k_read
@@ -320,6 +344,8 @@ document.getElementById('file').onchange = function()
     row_8_data_8.innerHTML = size_16k_read[14];
     let row_8_data_9 = document.createElement('td');
     row_8_data_9.innerHTML = size_16k_read[48];
+    let row_8_data_10 = document.createElement('td');
+    row_8_data_10.innerHTML = size_16k_read[17];
     row_8.appendChild(row_8_data_1);
     row_8.appendChild(row_8_data_2);
     row_8.appendChild(row_8_data_3);
@@ -329,6 +355,7 @@ document.getElementById('file').onchange = function()
     row_8.appendChild(row_8_data_7);
     row_8.appendChild(row_8_data_8);
     row_8.appendChild(row_8_data_9);
+    row_8.appendChild(row_8_data_10);
     thead.appendChild(row_8);
 
     // test size_16k_write
@@ -351,6 +378,8 @@ document.getElementById('file').onchange = function()
     row_9_data_8.innerHTML = size_16k_write[14];
     let row_9_data_9 = document.createElement('td');
     row_9_data_9.innerHTML = size_16k_write[48];
+    let row_9_data_10 = document.createElement('td');
+    row_9_data_10.innerHTML = size_16k_write[17];
     row_9.appendChild(row_9_data_1);
     row_9.appendChild(row_9_data_2);
     row_9.appendChild(row_9_data_3);
@@ -360,6 +389,7 @@ document.getElementById('file').onchange = function()
     row_9.appendChild(row_9_data_7);
     row_9.appendChild(row_9_data_8);
     row_9.appendChild(row_9_data_9);
+    row_9.appendChild(row_9_data_10);
     thead.appendChild(row_9);
 
     // test size_256k_read
@@ -382,6 +412,8 @@ document.getElementById('file').onchange = function()
     row_10_data_8.innerHTML = size_256k_read[14];
     let row_10_data_9 = document.createElement('td');
     row_10_data_9.innerHTML = size_256k_read[48];
+    let row_10_data_10 = document.createElement('td');
+    row_10_data_10.innerHTML = size_256k_read[17];
     row_10.appendChild(row_10_data_1);
     row_10.appendChild(row_10_data_2);
     row_10.appendChild(row_10_data_3);
@@ -391,6 +423,7 @@ document.getElementById('file').onchange = function()
     row_10.appendChild(row_10_data_7);
     row_10.appendChild(row_10_data_8);
     row_10.appendChild(row_10_data_9);
+    row_10.appendChild(row_10_data_10);
     thead.appendChild(row_10);
 
     // test size_256_write
@@ -413,6 +446,8 @@ document.getElementById('file').onchange = function()
     row_11_data_8.innerHTML = size_256k_write[14];
     let row_11_data_9 = document.createElement('td');
     row_11_data_9.innerHTML = size_256k_write[48];
+    let row_11_data_10 = document.createElement('td');
+    row_11_data_10.innerHTML = size_256k_write[17];
     row_11.appendChild(row_11_data_1);
     row_11.appendChild(row_11_data_2);
     row_11.appendChild(row_11_data_3);
@@ -422,6 +457,7 @@ document.getElementById('file').onchange = function()
     row_11.appendChild(row_11_data_7);
     row_11.appendChild(row_11_data_8);
     row_11.appendChild(row_11_data_9);
+    row_11.appendChild(row_11_data_10);
     thead.appendChild(row_11);
   };
 
